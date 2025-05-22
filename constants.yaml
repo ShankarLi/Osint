@@ -1,0 +1,33 @@
+# LLM-related constants
+MODEL_ID: "us.anthropic.claude-3-5-sonnet-20241022-v2:0"
+GUARDRAIL_CONFIG:
+  guardrailIdentifier: "modnucgij4u8"
+  guardrailVersion: "5"
+  trace: "enabled"
+MAX_TOKENS: 200000
+
+# Milvus-related constants
+HOST: "k8s-milvuscl-milvuslb-09a67ae373-980a97231ef4d90f.elb.us-east-1.amazonaws.com"
+PORT: 80
+DATABASE: "rfa_cbt_vdb"
+TIMEOUT: 30
+COLLECTION_NAME: "osint_test"
+DIMENSION: 384
+MAX_TEXT_LENGTH: 300
+BATCH_SIZE: 50
+TOP_K: 1000
+
+# Embedding model
+EMBEDDING_MODEL: "all-MiniLM-L6-v2"
+
+# Fields for Milvus collection
+FIELDS:
+  - name: "id"
+    dtype: "INT64"
+    is_primary: true
+  - name: "embedding"
+    dtype: "FLOAT_VECTOR"
+    dim: 384
+  - name: "text"
+    dtype: "VARCHAR"
+    max_length: 65535
